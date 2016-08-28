@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Android和H5通信</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            width: 96%;
+            margin: 0 auto;
+        }
+
+        button {
+            width: 100%;
+            height: 42px;
+            background-color: #3ba2ff;
+            color: white;
+            font-size: 18px;
+            border-style: none;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+    </style>
+
+</head>
+<body id="wrapper">
+<button id="callAndroid">js调用android方法</button>
+<button id="callAndroidWithCallback">js调用android方法(callback)</button>
+</body>
+<script src="js/jquery.min.1.12.2.js"></script>
+<script>
+
+
+    $("#callAndroid").click(function () {
+        var json = {"name":"javascript","city": "深圳市"};
+       window.jsInterface.showToast(JSON.stringify(json));
+    });
+
+    $("#callAndroidWithCallback").click(function(){
+        var json = {"callback":"show","name":"其他数据"};
+        window.jsInterface.getHotelDetail(JSON.stringify(json));
+    });
+
+
+    function showMessage(json){
+        alert(json.name)
+        alert("js收到消息："+JSON.stringify(json));//转成字符串
+    }
+
+
+    function show(json){
+        alert("js收到消息："+JSON.stringify(json));//转成字符串
+    }
+
+</script>
+</html>

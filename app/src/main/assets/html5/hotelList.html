@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<section id="wrapper">
+   <!-- <div class="item">
+        <a href="#" class="dl">
+            <img src="http://himg.qunarzz.com/imgs/201212/06/nz078uvZz-60q8ylv120.jpg" alt=""/>
+            <ul>
+                <li>嘉华国际影城</li>
+                <li>望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店望京西店</li>
+                <li>88元</li>
+            </ul>
+        </a>
+    </div>
+    <div class="item">
+        <a href="#" class="dl">
+            <img src="http://himg.qunarzz.com/imgs/201212/06/nz078uvZz-60q8ylv120.jpg" alt=""/>
+            <ul>
+                <li>嘉华国际影城</li>
+                <li>望京西店</li>
+                <li>88元</li>
+            </ul>
+        </a>
+    </div>
+    <div class="item">
+        <a href="#" class="dl">
+            <img src="http://192.168.0.103:8080/imgs/img_1.jpg" alt=""/>
+            <ul>
+                <li>嘉华国际影城</li>
+                <li>望京西店</li>
+                <li>88元</li>
+            </ul>
+        </a>
+    </div>
+    <div class="item">
+        <a href="#" class="dl">
+            <img src="images/img_1.jpg" alt=""/>
+            <ul>
+                <li>嘉华国际影城</li>
+                <li>望京西店</li>
+                <li>88元</li>
+            </ul>
+        </a>
+    </div>-->
+</section>
+<script src="js/jquery.min.1.12.2.js"></script>
+<script src="js/template-simple.js"></script>
+<script>
+    var json = {"callback": "rendList"};
+    window.jsInterface.getHotelList(JSON.stringify(json));
+
+    //渲染列表
+    function rendList(json) {
+        var result = "";
+        $.each(json, function (n, value) {
+            result += '<div class="item"><a href="#" class="dl"><img src="' + value.img + '" alt=""/><ul><li>' + value.name + '</li><li class="address">' + value.addr + '</li><li class="price">' + value.price + '</li></ul></a></div>'
+
+        });
+        $('#wrapper').html(result);
+
+
+    }
+
+</script>
+</body>
+</html>

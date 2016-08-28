@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>H5调用android分享</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+            color: #859085;
+            font-size: 18px;
+        }
+
+        section {
+            position: fixed;
+            width: 100%;
+            text-align: center;
+            bottom: 40px;
+        }
+
+        .share-desc {
+            margin-bottom: 20px;
+        }
+
+        body {
+            /*padding: 10px;*/
+        }
+
+        .share-btn {
+            width: 40px;
+            border-style: none;
+            height: 40px;
+        }
+
+        .share-qq {
+            background: url("images/qq_sdk_login.png") no-repeat;
+            background-size: 40px;
+        }
+
+        .share-qq:active {
+            background: url("images/qq_select_press.png") no-repeat;
+            background-size: 40px;
+        }
+
+        .share-wechat {
+            background: url("images/ic_weixin_login_pressed.png") no-repeat;
+            background-size: 40px;
+        }
+
+        .share-wechat:active {
+            background: url("images/ic_weixin_login_pressed_night.png") no-repeat;
+            background-size: 40px;
+        }
+
+        .share-weibo {
+            background: url("images/ic_weibo_login_pressed.png") no-repeat;
+            background-size: 40px;
+        }
+
+        .share-weibo:active {
+            background: url("images/ic_weibo_login_pressed_night.png") no-repeat;
+            background-size: 40px;
+        }
+
+        .tip {
+            color: red;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+<section>
+    <div class="share-desc">--------分享到--------</div>
+    <button class="share-btn share-qq" id="share-qq"></button>
+    <button class="share-btn share-wechat" style="margin-left: 20px; margin-right: 20px;"></button>
+    <button class="share-btn share-weibo"></button>
+    <p class="tip">暂时只能分享到QQ</p>
+</section>
+
+<script src="js/jquery.min.js"></script>
+<script>
+
+    $("#share-qq").on("click", function () {
+        console.log("点击了分享到qq");
+        //调用安卓方法分享到qq
+        var json = {
+            "url": "http://sports.163.com/16/0826/14/BVDDKI5E00051CA1.html#p=BMVJOIJ00AI90005",
+            "title": "美媒:明夏KD库里或令勇士生变 CP3拿最后肥约？",
+            "summary": "今夏自由市场基本尘埃落定，重量级球星都为自己的前途和目标做出了选择，NBA的势力版图也因此出现了变化。而到了明年夏天，自由市场同样也会热闹非凡，美国媒体也对其中受人关注的球星做出了点评。",
+            "imgUrl": "http://img1.cache.netease.com/sports/2016/8/26/201608261439072fbf8_550.jpg"
+        };
+        window.jsInterface.shareToQQ(JSON.stringify(json));
+    });
+
+
+</script>
+</body>
+</html>
